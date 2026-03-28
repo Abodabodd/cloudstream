@@ -351,8 +351,8 @@ class CustomDecoder(private val fallbackFormat: Format?) : SubtitleParser {
     }
 
     override fun getCueReplacementBehavior(): Int {
-        // CUE_REPLACEMENT_BEHAVIOR_REPLACE seems most compatible, change if required
-        return realDecoder?.cueReplacementBehavior ?: Format.CUE_REPLACEMENT_BEHAVIOR_REPLACE
+    // تم التغيير إلى MERGE للسماح بتكدس الترجمات (منع حذف SRT المتداخلة)
+    return Format.CUE_REPLACEMENT_BEHAVIOR_MERGE
     }
 
     override fun reset() {
